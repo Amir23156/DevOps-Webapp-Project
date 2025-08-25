@@ -1,0 +1,8 @@
+<settings>
+<servers>
+    <server>
+        <id>devops-project-cicd</id>
+        <username>aws</username>
+    </server>
+</servers>
+</setting>
