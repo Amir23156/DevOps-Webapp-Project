@@ -6,18 +6,20 @@ phases:
       java: corretto8
   pre_build:
     commands:
-      - echo Initializing environment
-      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain nextwork --domain-owner 123456789012 --region us-east-2 --query authorizationToken --output text`
-
+      - echo "Initializing environment"
+      - java -version
+      - mvn -v
   build:
     commands:
-      - echo Build started on `date`
-      - mvn -s settings.xml compile
+      - echo "Build started on $(date)"
+      - mvn -B -U -e -DskipTests clean package  
   post_build:
     commands:
-      - echo Build completed on `date`
-      - mvn -s settings.xml package
+      - echo "Build completed on $(date)"
+      - ls -lah **/target || true
+
 artifacts:
   files:
-    - target/nextwork-web-project.war
+    - "**/target/*.war"
+    - "**/target/*.jar"
   discard-paths: no
