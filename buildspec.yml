@@ -12,7 +12,7 @@ phases:
   build:
     commands:
       - echo "Build started on $(date)"
-      - mvn -B -U -e -DskipTests clean package  
+      - mvn -B -U -e -DskipTests clean package
   post_build:
     commands:
       - echo "Build completed on $(date)"
@@ -20,5 +20,6 @@ phases:
 
 artifacts:
   files:
-    - /target/devops-web-project.war
+    - "target/devops-webapp-project.war"   
+    - "**/target/*.war"                    
   discard-paths: no
