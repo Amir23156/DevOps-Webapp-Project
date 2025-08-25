@@ -20,6 +20,5 @@ phases:
 
 artifacts:
   files:
-    - "**/target/*.war"
-    - "**/target/*.jar"
+    - /target/devops-web-project.war
   discard-paths: no
